@@ -83,14 +83,6 @@ class Ui_MainWindow(object):
         self.pauseButton.setIcon(icon2)
         self.pauseButton.setObjectName("pauseButton")
         self.horizontalLayout_5.addWidget(self.pauseButton)
-        self.stopButton = QtWidgets.QPushButton(self.centralWidget)
-        self.stopButton.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(
-            "images/control-stop-square.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.stopButton.setIcon(icon3)
-        self.stopButton.setObjectName("stopButton")
-        self.horizontalLayout_5.addWidget(self.stopButton)
         self.nextButton = QtWidgets.QPushButton(self.centralWidget)
         self.nextButton.setText("")
         icon4 = QtGui.QIcon()
@@ -102,7 +94,7 @@ class Ui_MainWindow(object):
         self.viewButton = QtWidgets.QPushButton(self.centralWidget)
         self.viewButton.setText("")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("images/application-image.png"),
+        icon5.addPixmap(QtGui.QPixmap("images/spotifyinator.png"),
                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.viewButton.setIcon(icon5)
         self.viewButton.setCheckable(True)
@@ -144,7 +136,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Failamp"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Spotifyinator"))
+        MainWindow.setWindowIcon(QtGui.QIcon("images/spotifyinator.png"))
         self.currentTimeLabel.setText(_translate("MainWindow", "0:00"))
         self.totalTimeLabel.setText(_translate("MainWindow", "0:00"))
         self.menuFIle.setTitle(_translate("MainWindow", "FIle"))
