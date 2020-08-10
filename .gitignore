@@ -133,4 +133,4 @@ secrets.py
 jason.json
 
 #cash $
-.cache**
+**.cache
