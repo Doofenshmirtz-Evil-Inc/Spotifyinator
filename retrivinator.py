@@ -18,7 +18,6 @@ if token:
     with open('jason.json', 'w') as outfile:
         json.dump(current, outfile)
 
-    # print(currentTrack['uri'] + ' ' + currentArtist['uri'])
     currentTrack = current['item']
     currentArtist = current['item']['artists'][0]
     currentAlbum = current ['item']['album']
