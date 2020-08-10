@@ -8,7 +8,7 @@ window.show()  # windows are hidden by default.
 window.setWindowTitle('Spotifyinator')
 window.setWindowIcon(QtGui.QIcon('spotifyinator.png'))
 
-label = QtWidgets.QLabel("")
+label = QtWidgets.QLabel("youve been thunderstruck")
 
 # The `Qt` namespace has a lot of attributes to customise
 # widgets. See: http://doc.qt.io/qt-5/qt.html
