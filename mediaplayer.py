@@ -3,9 +3,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtMultimedia import *
 from PyQt5.QtMultimediaWidgets import *
-
 from MainWindow import Ui_MainWindow
-
 
 def hhmmss(ms):
     # s = 1000
@@ -29,8 +27,7 @@ class SpotifyPlayer(QMainWindow):
     positionChanged = pyqtSignal()
 
     def play(self):
-        # tell spotify to play
-        print('play')
+        start_playback()
 
     def pause(self):
         pass
