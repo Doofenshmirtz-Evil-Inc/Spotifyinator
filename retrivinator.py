@@ -3,21 +3,18 @@ import json
 import spotipy
 from secrets import CLIENT_ID, CLIENT_SECRETS, USERNAME
 from timemachininator import convert
-<<<<<<< HEAD
 import time
 #fucntion tyme
 
 
 # def setVolume():
 #     sp.next_track()
-=======
 
 # fucntion tyme
 
 
 def Volume():
     sp.next_track()
->>>>>>> abc01185190ebaa62b347e08f124ed54697d7027
 
 
 def prevTrack():
