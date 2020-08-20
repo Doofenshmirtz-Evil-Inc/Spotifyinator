@@ -1,0 +1,43 @@
+
+        # bruh didnt i teach you about function params
+    
+    # ok so basically when you call a function it only knows that it exists, if youre importing it
+    # so you have to give it specific data, this is alos useful when u calling it in different situations
+    # for example lets say thers function math()
+
+# if math has 2 numbers it multiplies them, but if it has 1 then it squares it
+# so to do that math has to ask for some numbers
+# def math(num1, num2):
+#     if num2: # if we have 2 numbers
+#         return num1 * num2
+#     else:
+#         return num1*num1
+
+# right so basically no matter what, when you call math, the first number you give it is always num1 and the second is num2
+# so i can call math(sex, bomb) and sex will equal num1 and bomb will equal num2
+# understand? i bad at exmpalining this
+# but how do you use that
+
+# ok so you need the sp key or sp object or whatever right
+# so you should pass that to all the functions as a paramater so you dont have to keep
+# recreating it/requesting it from spotify
+
+# so like you would want that to be declared/created when the media player starts so that
+# u dont have to recreate it
+# then the pausePlayback() and stuff would just request sp as a param
+#ahhhh i see so i need to set it up where the functions get declared
+# well that would be in a diff file so it wouldnt work since ur just importing the functions not sp
+
+# well actually ur right, you need to set it up to request sp where the functions are declared
+# but the actual sp object would be in this file, you just pass it to the functions
+
+#how do you pass the object without just redoing it everytime
+
+# you declare the object outside of where you pass it
+
+#and then call it kinda like a function?
+# well an object is just a complicated variable basically, just a peice of data, so you just
+# give it to the function the same way you would a variable
+
+#got it 
+

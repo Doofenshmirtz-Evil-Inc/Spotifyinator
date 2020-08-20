@@ -4,6 +4,21 @@ from PyQt5.QtCore import *
 from PyQt5.QtMultimedia import *
 from PyQt5.QtMultimediaWidgets import *
 from MainWindow import Ui_MainWindow
+import spotipy
+from secrets import CLIENT_ID, CLIENT_SECRETS, USERNAME
+import json
+import os
+import keyboard
+from timemachininator import convert
+
+
+def getSp():
+    scope = 'user-read-playback-state user-modify-playback-state'
+    token = spotipy.util.prompt_for_user_token(USERNAME, scope, client_id=CLIENT_ID,
+                                        client_secret=CLIENT_SECRETS, redirect_uri='https://github.com/TongueDaddy')
+    return spotipy.Spotify(auth=token)
+
+sp = getSp()
 
 def hhmmss(ms):
     # s = 1000
@@ -25,26 +40,29 @@ class SpotifyPlayer(QMainWindow):
     
     durationChanged = pyqtSignal()
     positionChanged = pyqtSignal()
+    # zadk move this to the mainwindow class!!!!!!!!!!!!!!!! then pass it as a param
 
     def play(self):
-        start_playback()
+        print('play called')
+        sp.start_playback()
 
     def pause(self):
-        pass
+        print('pause called')
+        sp.pause_playback()
 
     def setVolume(self, volume):
-        pass
+        print('setVolume called')
 
     def next(self):
-        pass
+        print('next called')
+        sp.next_track()
     
     def prev(self):
-        pass
+        print('prev called')
+        sp.previous_track() # yo zack i moved the functions here cuz they were one liners
 
     def setPosition(self):
-        pass
-
-
+        print('setPosition called')
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
@@ -54,6 +72,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.player = SpotifyPlayer()
 
         # Connect control buttons/slides for media player.
+        # these are connect not normal calls
         self.playButton.pressed.connect(self.player.play)
         self.pauseButton.pressed.connect(self.player.pause)
         self.volumeSlider.valueChanged.connect(self.player.setVolume)
