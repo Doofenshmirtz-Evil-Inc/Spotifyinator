@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtMultimedia import *
 from PyQt5.QtMultimediaWidgets import *
+from PyQt5 import QtCore, QtWidgets
 from MainWindow import Ui_MainWindow
 import spotipy
 from secrets import CLIENT_ID, CLIENT_SECRETS, USERNAME
@@ -42,14 +43,20 @@ class SpotifyPlayer(QMainWindow):
     positionChanged = pyqtSignal()
     # zadk move this to the mainwindow class!!!!!!!!!!!!!!!! then pass it as a param
 
-    def play(self):
+    def play(self, playButton):
         print('play called')
         sp.start_playback()
+        icon2 = QIcon()
+        icon2.addPixmap(QPixmap("images/control-pause.png"), QIcon.Normal, QIcon.Off)
+        playButton.setIcon(icon2)
 
     def pause(self):
         print('pause called')
         sp.pause_playback()
+        # basically you wanna find out if u can pass any data thru signals and if so how yes
 
+        # lambda is a function but smoler yeah u dont name it
+# that sounds like a good idea try that
     def setVolume(self, volume):
         print('setVolume called')
 
@@ -73,10 +80,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Connect control buttons/slides for media player.
         # these are connect not normal calls
-        self.playButton.pressed.connect(self.player.play)
+        # self.playButton.pressed.connect(self.player.play)
         self.pauseButton.pressed.connect(self.player.pause)
         self.volumeSlider.valueChanged.connect(self.player.setVolume)
 
+        self.playButton.pressed.connect(lambda: self.player.play(window.playButton))
+        # wtf thats great lmao
+        #COMMIT - soup
+        
         self.nextButton.pressed.connect(self.player.next)
         self.previousButton.pressed.connect(self.player.prev)
 
@@ -85,12 +96,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.timeSlider.valueChanged.connect(self.player.setPosition)
 
         self.show()
+        #clicky button for the play pause
+    # this might just actually work 1 sec
         # self.model.layoutChanged.emit()
 
         # # If not playing, seeking to first of newly added + play.
         # if self.player.state() != QMediaPlayer.PlayingState:
         #     self.player.play()
 
+    
     def update_duration(self, duration):
         print("!", duration)
         print("?", self.player.duration())
@@ -108,6 +122,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.timeSlider.blockSignals(True)
         self.timeSlider.setValue(position)
         self.timeSlider.blockSignals(False)
+
 
     def toggle_viewer(self, state):
         if state:
@@ -140,8 +155,7 @@ if __name__ == '__main__':
     palette.setColor(QPalette.Highlight, QColor(42, 130, 218))
     palette.setColor(QPalette.HighlightedText, Qt.black)
     app.setPalette(palette)
-    app.setStyleSheet(
-        "QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }")
+    app.setStyleSheet("QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }")
 
     window = MainWindow()
     app.exec_()

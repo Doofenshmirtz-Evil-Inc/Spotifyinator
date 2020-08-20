@@ -64,6 +64,9 @@ class Ui_MainWindow(object):
         self.previousButton.setIcon(icon)
         self.previousButton.setObjectName("previousButton")
         self.horizontalLayout_5.addWidget(self.previousButton)
+
+# surgery
+
         self.playButton = QtWidgets.QPushButton(self.centralWidget)
         self.playButton.setText("")
         icon1 = QtGui.QIcon()
@@ -79,6 +82,7 @@ class Ui_MainWindow(object):
         self.pauseButton.setIcon(icon2)
         self.pauseButton.setObjectName("pauseButton")
         self.horizontalLayout_5.addWidget(self.pauseButton)
+        
         self.nextButton = QtWidgets.QPushButton(self.centralWidget)
         self.nextButton.setText("")
         icon4 = QtGui.QIcon()
