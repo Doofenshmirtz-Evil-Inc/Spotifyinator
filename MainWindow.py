@@ -70,18 +70,22 @@ class Ui_MainWindow(object):
         self.playButton = QtWidgets.QPushButton(self.centralWidget)
         self.playButton.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("images/control.png"),
+        # switched playbutton to look like paused as default cause theres only one button, we can switch it back when it works when music isnt playing when prgm is run
+        icon1.addPixmap(QtGui.QPixmap("images/control-pause.png"),
                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.playButton.setIcon(icon1)
         self.playButton.setObjectName("playButton")
         self.horizontalLayout_5.addWidget(self.playButton)
-        self.pauseButton = QtWidgets.QPushButton(self.centralWidget)
-        self.pauseButton.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("images/control-pause.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pauseButton.setIcon(icon2)
-        self.pauseButton.setObjectName("pauseButton")
-        self.horizontalLayout_5.addWidget(self.pauseButton)
+
+        # GOT RID OF THE PAUSE BTN
+
+        # self.pauseButton = QtWidgets.QPushButton(self.centralWidget)
+        # self.pauseButton.setText("")
+        # icon2 = QtGui.QIcon()
+        # icon2.addPixmap(QtGui.QPixmap("images/control-pause.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        # self.pauseButton.setIcon(icon2)
+        # self.pauseButton.setObjectName("pauseButton")
+        # self.horizontalLayout_5.addWidget(self.pauseButton)
         
         self.nextButton = QtWidgets.QPushButton(self.centralWidget)
         self.nextButton.setText("")
