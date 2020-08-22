@@ -1,0 +1,4 @@
+spotipy
+PyQt5
+keyboard
+PySimpleGUI

@@ -46,9 +46,7 @@ class SpotifyPlayer(QMainWindow):
     def play(self, playButton):
         print('play called')
         sp.start_playback()
-        icon2 = QIcon()
-        icon2.addPixmap(QPixmap("images/control-pause.png"), QIcon.Normal, QIcon.Off)
-        playButton.setIcon(icon2)
+
 
     def pause(self, pauseButton):
         print('pause called')
@@ -85,6 +83,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Connect control buttons/slides for media player.
         # these are connect not normal calls
         # self.playButton.pressed.connect(self.player.play)
+<<<<<<< HEAD
         #self.pauseButton.pressed.connect(self.player.pause)
         self.volumeSlider.valueChanged.connect(self.player.setVolume)
 
@@ -98,6 +97,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         #^pasue to play
         
 
+=======
+        # self.pauseButton.pressed.connect(self.player.pause)
+        self.volumeSlider.valueChanged.connect(self.player.setVolume)
+
+        self.playButton.setCheckable(True)
+        self.playButton.setChecked
+        self.playButton.pressed.connect(self.changePlayState)
+        # self.playButton.pressed.connect(lambda: self.player.play(window.playButton))
+        
+        # wtf thats great lmao
+        #COMMIT - soup
+>>>>>>> d492c55bad94297c814a565b788747488457d983
         
         self.nextButton.pressed.connect(self.player.next)
         self.previousButton.pressed.connect(self.player.prev)
@@ -114,8 +125,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # # If not playing, seeking to first of newly added + play.
         # if self.player.state() != QMediaPlayer.PlayingState:
         #     self.player.play()
-
     
+    # changes play btn to pause and vice 
+    def changePlayState(self):
+        icon2 = QIcon()
+        if self.playButton.isChecked():
+            self.player.play(window.playButton)
+            icon2.addPixmap(QPixmap("images/control-pause.png"), QIcon.Normal, QIcon.Off)
+            self.playButton.setIcon(icon2)
+
+        else:
+            self.player.pause()
+            icon2.addPixmap(QPixmap("images/control.png"), QIcon.Normal, QIcon.Off)
+            self.playButton.setIcon(icon2)
+
+
     def update_duration(self, duration):
         print("!", duration)
         print("?", self.player.duration())
