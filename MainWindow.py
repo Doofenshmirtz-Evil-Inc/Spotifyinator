@@ -66,8 +66,17 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.addWidget(self.previousButton)
 
 # surgery
+        # self.ppButton = QtWidgets.QPushButton(self.centralWidget)
+        # self.ppButton.setText("")
+        # icon1 = QtGui.QIcon()
+        # icon1.addPixmap(QtGui.QPixmap("images/control.png"),
+        #                 QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        # self.ppButton.setIcon(icon1)
+        # self.ppButton.setCheckable(True)
+
 
         self.playButton = QtWidgets.QPushButton(self.centralWidget)
+        self.playButton.setCheckable(True)
         self.playButton.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("images/control.png"),
@@ -75,6 +84,8 @@ class Ui_MainWindow(object):
         self.playButton.setIcon(icon1)
         self.playButton.setObjectName("playButton")
         self.horizontalLayout_5.addWidget(self.playButton)
+
+
         self.pauseButton = QtWidgets.QPushButton(self.centralWidget)
         self.pauseButton.setText("")
         icon2 = QtGui.QIcon()

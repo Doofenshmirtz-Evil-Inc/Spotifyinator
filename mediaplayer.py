@@ -50,9 +50,13 @@ class SpotifyPlayer(QMainWindow):
         icon2.addPixmap(QPixmap("images/control-pause.png"), QIcon.Normal, QIcon.Off)
         playButton.setIcon(icon2)
 
-    def pause(self):
+    def pause(self, pauseButton):
         print('pause called')
         sp.pause_playback()
+        icon1 = QIcon()
+        icon1.addPixmap(QPixmap("images/control.png"),
+                        QIcon.Normal, QIcon.Off)
+        pauseButton.setIcon(icon1)
         # basically you wanna find out if u can pass any data thru signals and if so how yes
 
         # lambda is a function but smoler yeah u dont name it
@@ -81,12 +85,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Connect control buttons/slides for media player.
         # these are connect not normal calls
         # self.playButton.pressed.connect(self.player.play)
-        self.pauseButton.pressed.connect(self.player.pause)
+        #self.pauseButton.pressed.connect(self.player.pause)
         self.volumeSlider.valueChanged.connect(self.player.setVolume)
 
-        self.playButton.pressed.connect(lambda: self.player.play(window.playButton))
-        # wtf thats great lmao
-        #COMMIT - soup
+
+        #find a way to get the checked button to run the play()
+        if self.playButton.isChecked():
+            self.playButton.connect(lambda: self.player.play(window.playButton))
+        #^play to pause
+        else:
+            self.pauseButton.pressed.connect(lambda: self.player.pause(window.pauseButton))
+        #^pasue to play
+        
+
         
         self.nextButton.pressed.connect(self.player.next)
         self.previousButton.pressed.connect(self.player.prev)
